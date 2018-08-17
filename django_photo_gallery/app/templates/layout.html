@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> {% load staticfiles %} {% include 'material/includes/material_css.html' %}
+    <link rel="stylesheet" href="{% static 'site.css' %}" type="text/css" /> {% block css %}{% endblock %}
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+
+<body>
+<style>
+html *{color:#0441CC}
+a:link {
+    color: #0441CC;
+}
+
+/* visited link */
+a:visited {
+    color: #0441CC;
+}
+</style>
+
+    <nav role="navigation" style = "background-color:white; min-height:75px;">
+        <div class="nav-wrapper container" style = "color: #0441CC">
+            <a id="logo-container" href="{% url 'home' %}" class="brand-logo"><img src="https://i.imgur.com/819kAUh.jpg?1" alt="Handy Hill Creamery" width="50%" height="40%"></a>
+            <ul class="right hide-on-med-and-down">
+                <li>
+                    <a href="{% url 'Find Us' %}">About Us</a>
+                </li>
+            </ul>
+			{% for album in albums %}
+			<ul class="right hide-on-med-and-down">
+                <li>
+                    <a href="{% url 'album' album.slug %}">{{ album.title }}</a>
+                </li>
+            </ul>
+			 {% endfor %}
+			 <ul class="right hide-on-med-and-down">
+                <li>
+                    <a href="{% url 'home' %}">Home</a>
+                </li>
+            </ul>
+			
+            <ul id="nav-mobile" class="sidenav" style="transform: translateX(-105%);">
+                <li>
+				    <a href="#">Navbar Link</a>
+                    <a href="#">Navbar Link</a>
+                </li>
+            </ul>
+            <a href="#" data-target="nav-mobile" class="sidenav-trigger">
+                <i class="material-icons">menu</i>
+            </a>
+        </div>
+    </nav>
+
+    {% block content %}{% endblock %}
+
+    <footer class="page-footer" style= "background-color:white;"	>
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <a href="https://www.facebook.com/Handy-Hill-Creamery-145171075503096/" target="_blank" style = "padding-right: 40px">
+                        <img src="https://en.facebookbrand.com/wp-content/uploads/2016/05/flogo_rgb_hex-brc-site-250.png" class="dpg-icon" alt="Facebook" />
+                    </a>
+                    <a href="https://www.instagram.com/handyhillcreamery/" target="_blank">
+                        <img src="https://instagram-brand.com/wp-content/themes/ig-branding/assets/images/ig-logo-email.png" class="dpg-icon" alt="Instagram" />
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright" style = "color:#0441CC">
+            <div class="container">
+                © 2018 Copyright Handy Hill Creamery
+                <a class="grey-text text-lighten-4 right" href="#!" style = "color:#0441CC">Sample created by @VelinGeorgiev</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'material/js/jquery-2.2.0.js' %}"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script> -->
+    {% include 'material/includes/material_js.html' %}
+    <script src="{% static 'app.js' %}"></script> {% block js %}{% endblock %}
+</body>
+
+</html>

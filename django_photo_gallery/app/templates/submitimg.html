@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block title %}<title>Create Event</title>{% endblock %}
+{% block content %}
+  <!-- Create Event -->
+  <div class="event card spaced">
+    <h4 class="card-header">Submit New Image!</h4>
+    <div class="card-body">
+      <form>
+        <div class="form-group">
+          <label>Image Title</label>
+          <input class="form-control" placeholder="Enter a title for your picture">
+        </div>
+
+        <div class="form-group">
+          <label>Add images:</label>
+          <div class="form-group">
+            <div class="file-loading">
+              <input id="input-image" type="file" multiple>
+            </div>
+          </div>
+        </div>
+        <button type="submit" >Submit</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}
