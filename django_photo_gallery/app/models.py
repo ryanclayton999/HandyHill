@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*- 
+# -*- coding: utf-8 -*-
 import uuid
 from django.db import models
 from imagekit.models import ProcessedImageField
@@ -30,22 +30,24 @@ class AlbumImage(models.Model):
     width = models.IntegerField(default=0)
     height = models.IntegerField(default=0)
     slug = models.SlugField(max_length=70, default=uuid.uuid4, editable=False)
-	
+
 class foodCategory(models.Model):
 	title = models.CharField(max_length=70)
-	description = models.TextField(max_length=1024)
+	description = models.TextField(max_length=1024, blank=True)
 	is_visible = models.BooleanField(default=True)
 	created = models.DateTimeField(auto_now_add=True)
 	def __str__(self):
 		return self.title
-	
+
 
 class foodItem(models.Model):
 	title = models.CharField(max_length=70)
-	description = models.TextField(max_length=1024)
+	description = models.TextField(max_length=1024, blank=True)
 	foodcategory = models.ForeignKey('foodcategory', on_delete=models.PROTECT)
 	is_visible = models.BooleanField(default=True)
 	created = models.DateTimeField(auto_now_add=True)
 	price = models.DecimalField(max_digits=8, decimal_places=2)
+	price2 = models.DecimalField(max_digits=8, decimal_places=2, null=True)
+	price3 = models.DecimalField(max_digits=8, decimal_places=2, null=True)
 	def __str__(self):
 		return self.title

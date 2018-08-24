@@ -2,21 +2,20 @@
 {% load staticfiles %}
 
 {% block css %}
-    <link rel="stylesheet" href="{% static 'external/photoswipe/photoswipe.css' %}"> 
-    <link rel="stylesheet" href="{% static 'external/photoswipe/default-skin/default-skin.css' %}"> 
+    <link rel="stylesheet" href="{% static 'external/photoswipe/photoswipe.css' %}">
+    <link rel="stylesheet" href="{% static 'external/photoswipe/default-skin/default-skin.css' %}">
 {% endblock %}
 
 {% block content %}
 
     {% if album.is_visible %}
-	
+	<center><header  style="width:100px;padding-left:100px;">
+            </header><h4>{{ album.description }}</h4></center>
         <article class="row">
-		
-            <header  style="width:100px;padding-left:100px;">
-                <h1>{{ album.title }}</h1>
-            </header>
+
+
             <section class="col s12 m12 l10 offset-l1">
-                <p>{{ album.description }}</p>
+
 
                 <div class="container">
 
@@ -32,7 +31,7 @@
             <footer class="col s12 m12 l10 offset-l1">
                 <p>Tags: {{ album.tags }}</p>
             </footer>
-        
+
 
         <!-- PhotoSwipe -->
         <!-- Root element of PhotoSwipe. Must have class pswp. -->
@@ -45,7 +44,7 @@
 
 {% block js %}
     <script>
-        // build the json album images collection 
+        // build the json album images collection
         window.djangoAlbumImages = [
             {% for item in images %}
                 {
@@ -56,6 +55,6 @@
             {% endfor %}
         ];
     </script>
-    <script src="{% static 'external/photoswipe/photoswipe.min.js' %}"></script> 
+    <script src="{% static 'external/photoswipe/photoswipe.min.js' %}"></script>
     <script src="{% static 'external/photoswipe/photoswipe-ui-default.min.js' %}"></script>
 {% endblock %}

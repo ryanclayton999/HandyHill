@@ -1,13 +1,18 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> {% load staticfiles %} {% include 'material/includes/material_css.html' %}
     <link rel="stylesheet" href="{% static 'site.css' %}" type="text/css" /> {% block css %}{% endblock %}
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -23,12 +28,23 @@ a:visited {
 }
 </style>
 
-    <nav role="navigation" style = "background-color:white; min-height:75px;">
-        <div class="nav-wrapper container" style = "color: #0441CC">
-            <a id="logo-container" href="{% url 'home' %}" class="brand-logo"><img src="https://i.imgur.com/819kAUh.jpg?1" alt="Handy Hill Creamery" width="50%" height="40%"></a>
+
+
+    <nav id = "nav" role="navigation" style = "display: flex;background-color:white; min-height:80px;width: 100%;margin:0px;">
             <ul class="right hide-on-med-and-down">
                 <li>
-                    <a href="{% url 'Find Us' %}">About Us</a>
+            <a href="{% url 'home' %}" ><img height = "40%" width = "50%" src="https://i.imgur.com/819kAUh.jpg?1" alt="Handy Hill Creamery"style = "display: block;margin-left: auto;margin-right: auto;width: 50%;" ></a>
+                </li>
+            </ul>
+
+			 <ul class="right hide-on-med-and-down">
+                <li>
+                    <a href="{% url 'home' %}">Home</a>
+                </li>
+            </ul>
+            <ul class="right hide-on-med-and-down">
+                <li>
+                    <a href="{% url 'foodmenu' %}">Food Menu</a>
                 </li>
             </ul>
 			{% for album in albums %}
@@ -40,20 +56,28 @@ a:visited {
 			 {% endfor %}
 			 <ul class="right hide-on-med-and-down">
                 <li>
-                    <a href="{% url 'home' %}">Home</a>
+                    <a href="{% url 'findus' %}">Find Us</a>
                 </li>
             </ul>
-			
-            <ul id="nav-mobile" class="sidenav" style="transform: translateX(-105%);">
-                <li>
-				    <a href="#">Navbar Link</a>
-                    <a href="#">Navbar Link</a>
-                </li>
-            </ul>
-            <a href="#" data-target="nav-mobile" class="sidenav-trigger">
-                <i class="material-icons">menu</i>
-            </a>
-        </div>
+
+
+    </ul>
+<div class="topnav" id="myTopnav" style=""><div id="mobcontainer" style="width:100%">
+<a href="{% url 'home' %}" >Home</a>
+    <a href="{% url 'findus' %}">Find Us</a>
+  <a href="{% url 'foodmenu' %}">Food Menu</a>
+  <!-- bugged until mobile nav is fit to width on small screens
+  {% for album in albums %}
+  <a href="{% url 'album' album.slug %}">{{ album.title }}</a>
+{% endfor %}
+-->
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()"
+  </a></div>
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+
     </nav>
 
     {% block content %}{% endblock %}
@@ -68,7 +92,7 @@ a:visited {
                     <a href="https://www.instagram.com/handyhillcreamery/" target="_blank">
                         <img src="https://instagram-brand.com/wp-content/themes/ig-branding/assets/images/ig-logo-email.png" class="dpg-icon" alt="Instagram" />
                     </a>
-                    
+
                 </div>
             </div>
         </div>

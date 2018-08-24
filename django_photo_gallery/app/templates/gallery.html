@@ -2,37 +2,18 @@
 {% load staticfiles %}
 
 {% block content %}
+<a href= "{% url 'findus' %}" style = "padding-top:15px;">
+                    <img src="{% static 'images/Front.jpg' %}" alt="foodmenu"   style = "max-height:100%;max-width:100%;display: block;margin-left: auto;margin-right: auto;"/>
+					</a>
 
-<div class="slider">
-    <ul class="slides">
-        <li>
-            <img src="{% static 'images/Front.jpg' %}" alt="Django Photo Gallery" class="opaque">
-            <div class="caption center-align">
-                <h1>
-                    <!--text can go here on top of the slider--><br/>
-                    <small class="light text-lighten-3 hide-on-small-only"><!--text can go here on top of the slider--></small>
-                </h1>
-                
-            </div>
-        </li>
-        <li>
-            <img src="{% static 'images/beach.jpg' %}" alt="Django Photo Gallery"  class="opaque">
-            <div class="caption left-align">
-                <h1>
-                    <!--text can go here on top of the slider--><br />
-                    <small class="light text-lighten-3 hide-on-small-only"><!--text can go here on top of the slider--></small>
-                </h1>
-            </div>
-        </li>
-    </ul>
-</div>
-<div class="container">
+
+<div class="container" id="col-container">
     <div class="row">
-		<div class="col">
+		<div class="col" id="col">
             <div class="card dpg-album-card">
                 <div class="card-image">
 				<a href= "{% url 'foodmenu' %}">
-                    <img src="https://i.imgur.com/qiL3eSA.jpg" alt="foodmenu" class="dpg-album-card-image" />
+                    <img src="https://i.imgur.com/qiL3eSA.jpg" alt="foodmenu" class="dpg-album-card-image" height = "300" width = "300"  />
 					</a>
                 </div>
                 <div class="card-content">
@@ -48,7 +29,7 @@
 		</div>
         {% for album in albums %}
 
-        <div class="col">
+        <div class="col" id = "col">
             <div class="card dpg-album-card">
                 <div class="card-image">
 				<a href= "{% url 'album' album.slug %}">

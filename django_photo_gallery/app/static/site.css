@@ -1,4 +1,4 @@
-﻿/* Custom fonts */
+/* Custom fonts */
 @font-face {
   font-family: Ubuntu;
   src: local("Ubuntu"),
@@ -50,7 +50,7 @@ strong {
   /* This works in IE 8 & 9 too */
   /* ... but also 5, 6, 7 */
   filter: alpha(opacity=60);
-  
+
   /* Modern Browsers */
   opacity: 0.6;
 }
@@ -72,3 +72,5 @@ strong {
 .dpg-album-card, .dpg-album-image {
     max-width:300px;
 }
+
+

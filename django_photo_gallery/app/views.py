@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-  
+# -*- coding: utf-8 -*-
 from django.shortcuts import render
 from django.http import HttpRequest
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -38,46 +38,33 @@ class AlbumDetail(DetailView):
 def handler404(request):
     assert isinstance(request, HttpRequest)
     return render(request, 'handler404.html', None, None, 404)
-	
+
 def index(request):
 	"""View function for home page of site."""
 
-  
-    
+
+
 
 	return render(request, 'index.html')
-	
+
 def find_us(request):
 	"""View function for find_us of site."""
 
-  
-    
 
-	return render(request, 'findus.html')
-	
+
+
+	return render(request, 'Findus.html')
+
 def foodmenu(request):
 	"""View function for home page of site."""
 
-	list = foodCategory.objects.all()
+	list1 = foodCategory.objects.all()
 	list2 = foodItem.objects.all()
-    
 
-	return render(request, 'Food.html',{ 'categories': list , 'items': list2})
+
+	return render(request, 'Food.html',{ 'categories': list1 , 'items': list2})
 def icecream(request):
 	return render(request, 'icecream.html')
 
 
 
-def submitimg(request):
-    if request.method == "POST":
-        form = submitForm(request.POST)
-        Album.objects.get(title="Gallery")
-
-        print (form.fields['image'])
-        AlbumImage.objects.create(image= form.fields['image'],thumb = form.fields['image'], album = Album.objects.get(title="Gallery"),alt = form.fields['alt'])
-        return render(request, 'icecream.html')
-    else:
-        form = submitForm()
-    return render(request, 'submitimg.html', {'form': form})
-
-    # If this is a GET (or any other method) create the default form.
