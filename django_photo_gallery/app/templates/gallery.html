@@ -9,16 +9,16 @@
 
 <div class="container" id="col-container">
     <div class="row">
-		<div class="col" id="col">
+		<div class="col" >
             <div class="card dpg-album-card">
                 <div class="card-image">
 				<a href= "{% url 'foodmenu' %}">
                     <img src="https://i.imgur.com/qiL3eSA.jpg" alt="foodmenu" class="dpg-album-card-image" height = "300" width = "300"  />
 					</a>
                 </div>
-                <div class="card-content">
+                <div class="card-content" id="col">
                     <span class="card-title">Food Menu	</span>
-                    <p>A list of our food Items</p>
+                    <a href= "{% url 'foodmenu' %}">A list of our food Items</a>
                 </div>
                 <div class="card-action">
                     <a style="color:black;"href="{% url 'foodmenu'%}">
@@ -29,16 +29,16 @@
 		</div>
         {% for album in albums %}
 
-        <div class="col" id = "col">
+        <div class="col">
             <div class="card dpg-album-card">
                 <div class="card-image">
 				<a href= "{% url 'album' album.slug %}">
                     <img src="{{ album.thumb.url }}" alt="{{ album.title }}" class="dpg-album-card-image" />
 					</a>
                 </div>
-                <div class="card-content">
+                <div class="card-content" id ="col">
                     <span class="card-title">{{ album.title }}</span>
-                    <p>{{ album.description|truncatechars:120 }}</p>
+                    <a href= "{% url 'album' album.slug %}">{{ album.description|truncatechars:120 }}</a>
                 </div>
                 <div class="card-action">
                     <a style="color:black;"href="{% url 'album' album.slug %}">

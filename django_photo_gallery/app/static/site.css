@@ -72,5 +72,11 @@ strong {
 .dpg-album-card, .dpg-album-image {
     max-width:300px;
 }
+.col{
+    overflow: hidden;
+}
+#col{
+     padding-bottom: 99999px; margin-bottom: -99999px;
+}
 
 
